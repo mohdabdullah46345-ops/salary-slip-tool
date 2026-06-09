@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salary Slip Generator | Professional Payslip Maker</title>
+  <meta name="description" content="Free professional salary slip / payslip generator. Fill in details, preview live, and download a clean PDF. Works fully offline in your browser." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>" />
+</head>
+<body>
+  <header class="app-header no-print">
+    <div class="brand">
+      <span class="brand-mark">₹</span>
+      <div>
+        <h1>Salary Slip Generator</h1>
+        <p>Create a professional payslip in seconds — preview live and download as PDF.</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" id="loadSampleBtn" class="btn btn-ghost">Load Sample</button>
+      <button type="button" id="resetBtn" class="btn btn-ghost">Reset</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- ============ FORM PANEL ============ -->
+    <section class="panel form-panel no-print" aria-label="Salary slip details form">
+      <form id="slipForm" autocomplete="off">
+
+        <!-- Company -->
+        <fieldset>
+          <legend>Company Details</legend>
+          <div class="logo-row">
+            <label class="logo-uploader" for="logoInput">
+              <img id="logoPreview" alt="" hidden />
+              <span id="logoPlaceholder">+ Logo</span>
+            </label>
+            <input type="file" id="logoInput" accept="image/*" hidden />
+            <div class="logo-hint">
+              <p>Upload company logo</p>
+              <button type="button" id="removeLogoBtn" class="btn-link" hidden>Remove logo</button>
+            </div>
+          </div>
+          <div class="grid-2">
+            <div class="field">
+              <label for="companyName">Company Name</label>
+              <input type="text" id="companyName" data-bind="companyName" placeholder="Acme Technologies Pvt. Ltd." />
+            </div>
+            <div class="field">
+              <label for="companyPhone">Phone / Email</label>
+              <input type="text" id="companyPhone" data-bind="companyPhone" placeholder="+91 98765 43210" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="companyAddress">Company Address</label>
+            <input type="text" id="companyAddress" data-bind="companyAddress" placeholder="123 Business Park, Bengaluru, KA 560001" />
+          </div>
+        </fieldset>
+
+        <!-- Pay period -->
+        <fieldset>
+          <legend>Pay Period & Attendance</legend>
+          <div class="grid-3">
+            <div class="field">
+              <label for="payMonth">Salary Month</label>
+              <input type="month" id="payMonth" data-bind="payMonth" />
+            </div>
+            <div class="field">
+              <label for="totalDays">Total Working Days</label>
+              <input type="number" id="totalDays" data-bind="totalDays" min="0" step="0.5" placeholder="30" />
+            </div>
+            <div class="field">
+              <label for="lopDays">Loss of Pay (Days)</label>
+              <input type="number" id="lopDays" data-bind="lopDays" min="0" step="0.5" placeholder="0" />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Employee -->
+        <fieldset>
+          <legend>Employee Details</legend>
+          <div class="grid-2">
+            <div class="field">
+              <label for="empName">Employee Name</label>
+              <input type="text" id="empName" data-bind="empName" placeholder="Riya Sharma" />
+            </div>
+            <div class="field">
+              <label for="empId">Employee ID</label>
+              <input type="text" id="empId" data-bind="empId" placeholder="EMP-0142" />
+            </div>
+            <div class="field">
+              <label for="designation">Designation</label>
+              <input type="text" id="designation" data-bind="designation" placeholder="Software Engineer" />
+            </div>
+            <div class="field">
+              <label for="department">Department</label>
+              <input type="text" id="department" data-bind="department" placeholder="Engineering" />
+            </div>
+            <div class="field">
+              <label for="doj">Date of Joining</label>
+              <input type="date" id="doj" data-bind="doj" />
+            </div>
+            <div class="field">
+              <label for="pan">PAN</label>
+              <input type="text" id="pan" data-bind="pan" placeholder="ABCDE1234F" />
+            </div>
+            <div class="field">
+              <label for="bankName">Bank Name</label>
+              <input type="text" id="bankName" data-bind="bankName" placeholder="HDFC Bank" />
+            </div>
+            <div class="field">
+              <label for="bankAccount">Bank Account No.</label>
+              <input type="text" id="bankAccount" data-bind="bankAccount" placeholder="XXXXXX1234" />
+            </div>
+            <div class="field">
+              <label for="uan">UAN / PF No.</label>
+              <input type="text" id="uan" data-bind="uan" placeholder="100200300400" />
+            </div>
+            <div class="field">
+              <label for="currency">Currency Symbol</label>
+              <input type="text" id="currency" data-bind="currency" maxlength="3" placeholder="₹" />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Earnings -->
+        <fieldset>
+          <legend>Earnings</legend>
+          <div class="line-items" id="earningsList"></div>
+          <button type="button" class="btn btn-add" data-add="earnings">+ Add Earning</button>
+        </fieldset>
+
+        <!-- Deductions -->
+        <fieldset>
+          <legend>Deductions</legend>
+          <div class="line-items" id="deductionsList"></div>
+          <button type="button" class="btn btn-add" data-add="deductions">+ Add Deduction</button>
+        </fieldset>
+
+        <!-- Notes -->
+        <fieldset>
+          <legend>Notes (optional)</legend>
+          <div class="field">
+            <textarea id="notes" data-bind="notes" rows="2" placeholder="This is a system generated payslip and does not require a signature."></textarea>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+
+    <!-- ============ PREVIEW PANEL ============ -->
+    <section class="panel preview-panel" aria-label="Salary slip preview">
+      <div class="preview-toolbar no-print">
+        <span class="preview-label">Live Preview</span>
+        <button type="button" id="downloadBtn" class="btn btn-primary">⬇ Download PDF</button>
+      </div>
+
+      <div class="payslip-scroll">
+        <article class="payslip" id="payslip">
+          <div class="payslip-top">
+            <div class="payslip-company">
+              <img id="slipLogo" class="slip-logo" alt="" hidden />
+              <div>
+                <h2 id="slipCompanyName">Company Name</h2>
+                <p id="slipCompanyAddress" class="muted"></p>
+                <p id="slipCompanyPhone" class="muted"></p>
+              </div>
+            </div>
+            <div class="payslip-title">
+              <h3>PAYSLIP</h3>
+              <p id="slipPeriod" class="muted">For the month of —</p>
+            </div>
+          </div>
+
+          <table class="emp-table">
+            <tbody id="empMeta"></tbody>
+          </table>
+
+          <div class="ded-grid">
+            <table class="money-table">
+              <thead><tr><th>Earnings</th><th class="amt">Amount</th></tr></thead>
+              <tbody id="slipEarnings"></tbody>
+              <tfoot><tr><td>Gross Earnings</td><td class="amt" id="grossEarnings">0.00</td></tr></tfoot>
+            </table>
+            <table class="money-table">
+              <thead><tr><th>Deductions</th><th class="amt">Amount</th></tr></thead>
+              <tbody id="slipDeductions"></tbody>
+              <tfoot><tr><td>Total Deductions</td><td class="amt" id="totalDeductions">0.00</td></tr></tfoot>
+            </table>
+          </div>
+
+          <div class="net-pay">
+            <div class="net-pay-row">
+              <span>Net Pay</span>
+              <span id="netPay" class="net-amt">0.00</span>
+            </div>
+            <p id="netWords" class="net-words muted">Amount in words: —</p>
+          </div>
+
+          <p id="slipNotes" class="slip-notes muted"></p>
+
+          <div class="signatures">
+            <div class="sign-box"><span class="line"></span><p>Employee Signature</p></div>
+            <div class="sign-box"><span class="line"></span><p>Authorised Signatory</p></div>
+          </div>
+
+          <p class="footer-credit muted">Generated with Salary Slip Generator</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer no-print">
+    <p>Runs 100% in your browser. No data leaves your device. Open source &amp; free.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
