@@ -256,3 +256,60 @@ textarea { resize: vertical; }
   .net-pay { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .money-table thead th, .money-table tfoot td { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+
+/* ============================================================
+   Content pages (About / Privacy / Terms / Contact)
+   ============================================================ */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.site-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0.92;
+}
+.site-nav a:hover { opacity: 1; text-decoration: underline; }
+
+.content {
+  max-width: 860px;
+  margin: 26px auto;
+  background: var(--panel);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 36px 40px;
+}
+.content h1 { margin-top: 0; color: var(--brand-dark); font-size: 1.6rem; }
+.content h2 { color: var(--brand-dark); font-size: 1.15rem; margin-top: 28px; }
+.content p, .content li { line-height: 1.7; color: #333b46; font-size: 0.96rem; }
+.content ul { padding-left: 22px; }
+.content a { color: var(--brand); }
+.content .updated { color: var(--muted); font-size: 0.85rem; margin-bottom: 24px; }
+
+.content-form { display: flex; flex-direction: column; gap: 14px; max-width: 520px; }
+.content-form label { font-weight: 600; font-size: 0.85rem; color: var(--muted); }
+.content-form input, .content-form textarea {
+  border: 1px solid var(--line); border-radius: 9px; padding: 11px 12px; font-family: inherit; font-size: 0.92rem;
+}
+.content-form button { align-self: flex-start; }
+
+/* Site footer with links */
+.site-footer {
+  background: #1b2434;
+  color: #c2cbd8;
+  padding: 28px 28px 34px;
+  margin-top: 30px;
+}
+.site-footer .footer-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+}
+.site-footer a { color: #c2cbd8; text-decoration: none; font-size: 0.9rem; display: block; margin: 5px 0; }
+.site-footer a:hover { color: #fff; text-decoration: underline; }
+.site-footer h4 { color: #fff; font-size: 0.95rem; margin: 0 0 8px; }
+.site-footer .copyright { margin-top: 18px; font-size: 0.82rem; opacity: 0.8; text-align: center; }

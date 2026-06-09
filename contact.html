@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Salary Slip Generator</title>
+  <meta name="description" content="Get in touch with the Salary Slip Generator team. We welcome your questions, feedback, and feature requests." />
+  <link rel="canonical" href="https://mohdabdullah46345-ops.github.io/salary-slip-tool/contact.html" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark">₹</span>
+      <div>
+        <h1>Salary Slip Generator</h1>
+        <p>Create a professional payslip in seconds.</p>
+      </div>
+    </div>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <h1>Contact Us</h1>
+    <p class="updated">We usually respond within 1–2 business days.</p>
+
+    <p>
+      Have a question, found a bug, or want to suggest a feature? We would love to hear from you.
+      You can reach us directly by email or use the form below.
+    </p>
+
+    <h2>Email</h2>
+    <p>
+      <a href="mailto:mohdabdullah46345@gmail.com">mohdabdullah46345@gmail.com</a>
+    </p>
+
+    <h2>Send a Message</h2>
+    <p>The form below will open your email app with the details pre-filled.</p>
+    <form class="content-form" id="contactForm">
+      <div>
+        <label for="cName">Your Name</label>
+        <input type="text" id="cName" required placeholder="Abdullah" />
+      </div>
+      <div>
+        <label for="cEmail">Your Email</label>
+        <input type="email" id="cEmail" required placeholder="you@example.com" />
+      </div>
+      <div>
+        <label for="cMessage">Message</label>
+        <textarea id="cMessage" rows="5" required placeholder="How can we help?"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <h4>Salary Slip Generator</h4>
+        <p style="max-width:280px;font-size:0.86rem;">A free tool to create professional payslips, right in your browser.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Disclaimer</a>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2026 Salary Slip Generator. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = encodeURIComponent(document.getElementById("cName").value);
+      var email = encodeURIComponent(document.getElementById("cEmail").value);
+      var msg = encodeURIComponent(document.getElementById("cMessage").value);
+      var subject = "Salary Slip Generator — Message from " + name;
+      var body = "Name: " + decodeURIComponent(name) + "%0D%0AEmail: " + decodeURIComponent(email) +
+        "%0D%0A%0D%0A" + msg;
+      window.location.href = "mailto:mohdabdullah46345@gmail.com?subject=" +
+        encodeURIComponent(subject) + "&body=" + body;
+    });
+  </script>
+</body>
+</html>
