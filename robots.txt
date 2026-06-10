@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mohdabdullah46345-ops.github.io/salary-slip-tool/sitemap.xml
+Sitemap: https://quicktoolkit1.github.io/salary-slip-builder-tool/sitemap.xml
