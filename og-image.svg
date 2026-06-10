@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Salary Slip Generator - Free Professional Payslip Maker">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1f50c4"/>
+      <stop offset="1" stop-color="#15348a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="1060" cy="120" r="220" fill="#ffffff" opacity="0.06"/>
+  <circle cx="120" cy="560" r="180" fill="#ffffff" opacity="0.05"/>
+
+  <!-- Brand badge -->
+  <g transform="translate(96,150)">
+    <rect width="120" height="120" rx="28" fill="#ffffff"/>
+    <text x="60" y="92" font-family="'Noto Sans', Arial, sans-serif" font-size="78" font-weight="700" fill="#1f50c4" text-anchor="middle">&#8377;</text>
+  </g>
+
+  <!-- Title -->
+  <text x="96" y="350" font-family="'Noto Sans', Arial, sans-serif" font-size="78" font-weight="800" fill="#ffffff">Salary Slip Generator</text>
+
+  <!-- Subtitle -->
+  <text x="98" y="416" font-family="'Noto Sans', Arial, sans-serif" font-size="38" font-weight="500" fill="#dbe4ff">Free professional payslip maker &#8212; live preview &amp; PDF</text>
+
+  <!-- Feature pills -->
+  <g font-family="'Noto Sans', Arial, sans-serif" font-size="26" font-weight="600">
+    <g transform="translate(96,470)">
+      <rect width="270" height="58" rx="29" fill="#ffffff" opacity="0.14"/>
+      <text x="135" y="38" fill="#ffffff" text-anchor="middle">100% Free</text>
+    </g>
+    <g transform="translate(386,470)">
+      <rect width="320" height="58" rx="29" fill="#ffffff" opacity="0.14"/>
+      <text x="160" y="38" fill="#ffffff" text-anchor="middle">No Sign-up</text>
+    </g>
+    <g transform="translate(726,470)">
+      <rect width="360" height="58" rx="29" fill="#ffffff" opacity="0.14"/>
+      <text x="180" y="38" fill="#ffffff" text-anchor="middle">Private in Browser</text>
+    </g>
+  </g>
+</svg>
